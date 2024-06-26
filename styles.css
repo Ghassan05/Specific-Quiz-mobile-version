@@ -6,34 +6,34 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:url("Background3.png"); /* Example background color */
+    background-color: #f0f0f0; /* Example background color */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 .container {
-    width: 600px; /* 9:16 aspect ratio width */
-    height: 600px; /* 9:16 aspect ratio height */
+    width: 100%;
+    max-width: 1080px; /* Max width for larger screens */
+    height: 100%;
+    max-height: 1920px; /* Max height for larger screens */
     border: 1px solid #000; /* Optional: For debugging layout */
-    background: #6c366c; /* Example background color matching your game */
+    background: #ff00cc; /* Example background color matching your game */
     overflow: hidden; /* Hide any overflow */
     text-align: center;
     padding: 20px;
-    border-radius: 100px;
-    padding-top: 30px;
+    box-sizing: border-box;
 }
 
 #timer-container {
-    width: 800px; /* Flat timer bar */
+    width: 80%; /* Use percentage for responsiveness */
     height: 25px; /* Flat timer bar */
     border-radius: 25px;
     padding: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+    margin: 20px auto; /* Center horizontally with margin */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
     background: #ff00cc;
 }
 
@@ -61,15 +61,15 @@ body, html {
 }
 
 #diamond {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background: url('diamond.png') no-repeat center center; /* Replace 'diamond.png' with your diamond image filename */
     background-size: cover;
     position: absolute;
     z-index: 10; /* Ensure the diamond is in front */
     animation: beat 1s infinite;
-    top: 50px; /* Position the diamond below the flat timer bar */
-    left: 40%;
+    top: -50px; /* Position the diamond above the timer */
+    left: 50%;
     transform: translateX(-50%); /* Center the diamond horizontally */
 }
 
@@ -82,13 +82,14 @@ body, html {
 .boxes {
     display: flex;
     justify-content: center;
-    margin-top: 250px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
 }
 
 .box {
-    width: 300px; /* Double size */
-    height: 300px; /* Double size */
-    margin: 50px;
+    width: 150px; /* Adjust size for mobile */
+    height: 150px; /* Adjust size for mobile */
+    margin: 10px; /* Adjust margin for mobile */
     perspective: 1000px;
     position: relative;
     transform-style: preserve-3d;
@@ -102,13 +103,14 @@ body, html {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
 }
 
 .image-container {
     position: relative;
-    width: 320px;
-    height: 320px;
-    margin: 20px;
+    width: 150px; /* Adjust size for mobile */
+    height: 150px; /* Adjust size for mobile */
+    margin: 10px; /* Adjust margin for mobile */
 }
 
 .image {
@@ -136,7 +138,7 @@ body, html {
 }
 
 #category-message {
-    font-size: 5em; /* 4 times bigger */
+    font-size: 2em; /* Adjust font size for mobile */
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
@@ -199,4 +201,34 @@ body, html {
 
 .rupture {
     animation: rupture 1s forwards;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #timer-container {
+        width: 90%;
+    }
+
+    #category-message {
+        font-size: 1.5em; /* Smaller text for mobile */
+    }
+
+    .box, .image-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    #diamond {
+        width: 40px;
+        height: 40px;
+    }
+
+    .win-overlay {
+        font-size: 1.5em;
+        transform: translateX(-50%) scale(1.5);
+    }
 }
