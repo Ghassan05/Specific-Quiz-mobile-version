@@ -10,15 +10,15 @@ body, html {
 }
 
 .container {
-    width: 1080px; /* 9:16 aspect ratio width */
-    height: 1920px; /* 9:16 aspect ratio height */
+    width: 600px; /* 9:16 aspect ratio width */
+    height: 600px; /* 9:16 aspect ratio height */
     border: 1px solid #000; /* Optional: For debugging layout */
     background: #6c366c; /* Example background color matching your game */
     overflow: hidden; /* Hide any overflow */
     text-align: center;
     padding: 20px;
     border-radius: 100px;
-    padding-top: 300px;
+    padding-top: 30px;
 }
 
 #timer-container {
@@ -61,8 +61,8 @@ body, html {
 }
 
 #diamond {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     background: url('diamond.png') no-repeat center center; /* Replace 'diamond.png' with your diamond image filename */
     background-size: cover;
     position: absolute;
