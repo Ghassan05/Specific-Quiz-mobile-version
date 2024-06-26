@@ -63,6 +63,7 @@ body, html {
 #diamond {
     width: 50px;
     height: 50px;
+    display: none;
     background: url('diamond.png') no-repeat center center; /* Replace 'diamond.png' with your diamond image filename */
     background-size: cover;
     position: absolute;
