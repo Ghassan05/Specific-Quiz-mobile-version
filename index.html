@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game 9:16</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="category-message"></div> <!-- Message div added here -->
+        <div class="boxes">
+            <div class="box" id="box1" style="background-image: url('box1.png');"></div>
+            <div class="box" id="box2" style="background-image: url('box2.png');"></div>
+            <div class="box" id="box3" style="background-image: url('box3.png');"></div>
+        </div>
+        <div id="timer-container">
+            <div id="timer-bar-left"></div>
+            <div id="timer-bar-right"></div>
+            <div id="diamond"></div> <!-- Diamond inside the timer container -->
+        </div>
+        <div id="countdown-display"></div>
+        <div class="images">
+            <div class="image-container" id="image-container1">
+                <img class="image" id="image1" src="" alt="Image 1">
+                <div class="win-overlay">😍</div>
+            </div>
+            <div class="image-container" id="image-container2">
+                <img class="image" id="image2" src="" alt="Image 2">
+                <div class="win-overlay">😍</div>
+            </div>
+            <div class="image-container" id="image-container3">
+                <img class="image" id="image3" src="" alt="Image 3">
+                <div class="win-overlay">😍</div>
+            </div>
+        </div>
+        <audio id="clock-alarm" src="clock-alarm.mp3"></audio>
+        <audio id="background-music" src="background-music.mp3" loop></audio>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

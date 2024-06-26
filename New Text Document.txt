@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Boxes with Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="timer-container">
+            <div id="timer-bar"></div>
+        </div>
+        <div class="boxes">
+            <div class="box" id="box1">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <img class="gift" src="" alt="Gift">
+            </div>
+            <div class="box" id="box2">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <img class="gift" src="" alt="Gift">
+            </div>
+            <div class="box" id="box3">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <img class="gift" src="" alt="Gift">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+css
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+#timer-container {
+    width: 400px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#timer-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ff00 25%, transparent 25%, transparent 50%, #00ff00 50%, #00ff00 75%, transparent 75%);
+    background-size: 40px 40px;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 8s linear;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 1s;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #00f;
+    opacity: 0.8;
+    border: 1px solid #fff;
+}
+
+.front { transform: translateZ(50px); }
+.back { transform: rotateY(180deg) translateZ(50px); }
+.left { transform: rotateY(-90deg) translateZ(50px); }
+.right { transform: rotateY(90deg) translateZ(50px); }
+.top { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.gift {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.explode {
+    animation: explode 1s forwards;
+}
+
+
+js
+
+document.addEventListener("DOMContentLoaded", function() {
+    const timerBar = document.getElementById("timer-bar");
+
+    // List of gift image filenames
+    const giftImages = ['gift1.png', 'gift2.png', 'gift3.png', 'gift4.png', 'gift5.png', 'gift6.png'];
+
+    // Function to get 3 random unique images from the list
+    function getRandomGifts() {
+        const shuffled = giftImages.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 3);
+    }
+
+    // Start the countdown when the page loads
+    startCountdown(8);
+
+    function startCountdown(seconds) {
+        let countdown = seconds;
+        timerBar.style.width = "100%";
+        timerBar.style.transition = `width ${seconds}s linear`;
+        timerBar.style.width = "0%";
+
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                displayGifts();
+                setTimeout(explodeBoxes, 500); // Add a delay before exploding
+            }
+        }, 1000);
+    }
+
+    function displayGifts() {
+        const boxes = document.querySelectorAll(".box");
+        const randomGifts = getRandomGifts();
+        boxes.forEach((box, index) => {
+            const gift = box.querySelector(".gift");
+            gift.src = randomGifts[index];
+            gift.style.display = "block";
+        });
+    }
+
+    function explodeBoxes() {
+        const boxes = document.querySelectorAll(".box");
+        boxes.forEach(box => {
+            box.classList.add('explode');
+        });
+
+        // Remove boxes after explosion animation completes
+        setTimeout(() => {
+            boxes.forEach(box => {
+                box.style.display = "none";
+            });
+        }, 1000); // Duration of the explosion animation
+    }
+});
