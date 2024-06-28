@@ -278,13 +278,5 @@ document.addEventListener("DOMContentLoaded", function() {
         timeouts.push(setTimeout(resetProcess, 5000)); // Restart the process after 3.5 seconds
     }
 
-    function initializeBoxes() {
-        const boxes = document.querySelectorAll(".box");
-        boxes.forEach(box => {
-            box.style.display = "block"; // Ensure boxes are visible initially
-        });
-    }
-
-    initializeBoxes(); // Call this function to make boxes visible initially
     startCountdown(5);
 });
