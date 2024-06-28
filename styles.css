@@ -125,7 +125,7 @@ body {
 .win-overlay {
     display: none;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%) scale(2);
     font-size: 2em;
