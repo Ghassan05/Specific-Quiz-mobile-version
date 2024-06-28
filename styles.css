@@ -88,8 +88,8 @@ body {
 }
 
 .box {
-    width: 100px;
-    height: 100px;
+    width: 1500px;
+    height: 150px;
     margin: 10px;
     perspective: 1000px;
     position: relative;
@@ -109,8 +109,8 @@ body {
 
 .image-container {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin: 10px;
 }
 
