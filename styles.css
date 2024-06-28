@@ -8,6 +8,7 @@ body, html {
     align-items: center;
     background-color: #f0f0f0;
     overflow: hidden;
+}
 
 .container {
     width: 100%;
@@ -20,37 +21,32 @@ body, html {
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto; /* Center the container */
 }
 
 #timer-container {
-    width: 800px; /* Adjust width for flat timer bar */
-    height: 35px; /* Adjust height for flat timer bar */
+    width: 80%;
+    height: 25px;
     border-radius: 25px;
     padding: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+    margin: 20px auto;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
     background: #ff00cc;
 }
 
 #timer-bar-left, #timer-bar-right {
-    width: 50%; /* Adjust for flat timer bar */
+    width: 50%;
     height: 100%;
     position: absolute;
     top: 0;
 }
 
 #timer-bar-left {
-    background: linear-gradient(to right, green, yellow, red); /* Gradient from green to yellow to red */
+    background: linear-gradient(to right, green, yellow, red);
     left: 0;
     transform-origin: left;
     transform: scaleX(0);
@@ -58,7 +54,7 @@ body, html {
 }
 
 #timer-bar-right {
-    background: linear-gradient(to left, green, yellow, red); /* Reversed gradient from green to yellow to red */
+    background: linear-gradient(to left, green, yellow, red);
     right: 0;
     transform-origin: right;
     transform: scaleX(0);
@@ -66,20 +62,19 @@ body, html {
 }
 
 #diamond {
-    width: 200px;
-    height: 200px;
-    background: url('diamond.png') no-repeat center center; /* Replace 'diamond.png' with your diamond image filename */
+    width: 50px;
+    height: 50px;
+    background: url('diamond.png') no-repeat center center;
     background-size: cover;
     position: absolute;
-    z-index: 10; /* Ensure the diamond is in front */
+    z-index: 10;
     animation: beat 1s infinite;
-    top: 50px; /* Position the diamond below the flat timer bar */
-    left: 39%;
-    transform: translateX(-50%); /* Center the diamond horizontally */
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-
-#countdown-display {
+#category-message {
     font-size: 2em;
     color: #000;
     margin-top: 20px;
@@ -89,12 +84,13 @@ body, html {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .box {
-    width: 100px; /* Double size */
-    height: 100px; /* Double size */
-    margin: 50px;
+    width: 150px; /* Adjust size for mobile */
+    height: 150px; /* Adjust size for mobile */
+    margin: 10px; /* Adjust margin for mobile */
     perspective: 1000px;
     position: relative;
     transform-style: preserve-3d;
@@ -102,19 +98,25 @@ body, html {
     animation: beat 1s infinite; /* Beating animation */
     background-size: cover; /* Ensure background image covers the entire box */
     background-repeat: no-repeat;
+    display: flex; /* Ensure box is a flex container */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: #fff; /* Add a background color to make them visible */
+    border: 2px solid #000; /* Optional: Add a border for visibility */
 }
 
 .images {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .image-container {
     position: relative;
-    width: 320px;
-    height: 320px;
-    margin: 20px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
 }
 
 .image {
@@ -122,7 +124,7 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border: 5px solid #000; /* Add border */
+    border: 5px solid #000;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     opacity: 0;
 }
@@ -130,23 +132,15 @@ body, html {
 .win-overlay {
     display: none;
     position: absolute;
-    bottom: 10px; /* Position the emoji at the bottom */
+    bottom: 10px;
     left: 50%;
-    transform: translateX(-50%) scale(2); /* Center and scale the emoji */
-    font-size: 2em; /* Adjust font size if needed */
+    transform: translateX(-50%) scale(2);
+    font-size: 2em;
     color: gold;
     background-color: none;
     padding: 10px 20px;
     border-radius: 10px;
     z-index: 10;
-}
-
-#category-message {
-    font-size: 5em; /* 4 times bigger */
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    animation: textEffect 2s infinite; /* Add text effect animation */
 }
 
 @keyframes textEffect {
@@ -205,4 +199,34 @@ body, html {
 
 .rupture {
     animation: rupture 1s forwards;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #timer-container {
+        width: 90%;
+    }
+
+    #category-message {
+        font-size: 1.5em;
+    }
+
+    .box, .image-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    #diamond {
+        width: 40px;
+        height: 40px;
+    }
+
+    .win-overlay {
+        font-size: 1.5em;
+        transform: translateX(-50%) scale(1.5);
+    }
 }
