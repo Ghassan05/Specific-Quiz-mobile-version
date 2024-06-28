@@ -17,6 +17,7 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 #timer-container {
@@ -67,7 +68,8 @@ body {
     position: absolute;
     z-index: 10;
     animation: beat 1s infinite;
-    top: -50px;
+    top: auto;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
 }
