@@ -25,7 +25,7 @@ body, html {
 }
 
 #timer-container {
-    width: 80%;
+    width: 50%;
     height: 25px;
     border-radius: 25px;
     padding: 5px;
@@ -75,7 +75,7 @@ body, html {
 }
 
 #category-message {
-    font-size: 2em;
+    font-size: 1em;
     color: #000;
     margin-top: 20px;
     animation: textEffect 2s infinite;
@@ -91,7 +91,7 @@ body, html {
 .box {
     width: 150px; /* Adjust size for mobile */
     height: 150px; /* Adjust size for mobile */
-    margin: 10px; /* Adjust margin for mobile */
+    margin: 5px; /* Adjust margin for mobile */
     perspective: 1000px;
     position: relative;
     transform-style: preserve-3d;
