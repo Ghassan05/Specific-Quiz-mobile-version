@@ -1,37 +1,39 @@
-<<<<<<< HEAD
-body {
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('Background3.png') no-repeat center center fixed;
-    background-size: cover;
-    transition: background 1s ease-in-out;
+    background-color: #f0f0f0;
+    overflow: hidden;
 }
 
 .container {
+    width: 100%;
+    max-width: 1080px;
+    height: 100%;
+    max-height: 1920px;
+    border: 1px solid #000;
+    background: #ff00cc;
+    overflow: hidden;
     text-align: center;
-    padding: 20px; /* Reduced padding for mobile */
-    border-radius: 10px;
-    width: 100%; /* Ensure the container takes the full width on mobile */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #timer-container {
-    width: 100%; /* Make the timer bar responsive */
-    max-width: 800px; /* Limit maximum width for larger screens */
-    height: 35px;
+    width: 80%;
+    height: 25px;
     border-radius: 25px;
     padding: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+    margin: 20px auto;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
     background: #ff00cc;
 }
 
@@ -42,34 +44,50 @@ body {
     top: 0;
 }
 
+#timer-bar-left {
+    background: linear-gradient(to right, green, yellow, red);
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 3.5s linear;
+}
+
+#timer-bar-right {
+    background: linear-gradient(to left, green, yellow, red);
+    right: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 3.5s linear;
+}
+
 #diamond {
-    width: 50px; /* Reduced size for mobile */
+    width: 50px;
     height: 50px;
     background: url('diamond.png') no-repeat center center;
     background-size: cover;
     position: absolute;
     z-index: 10;
     animation: beat 1s infinite;
-    top: -25px; /* Adjusted positioning */
+    top: -50px;
     left: 50%;
     transform: translateX(-50%);
 }
 
-#countdown-display {
-    font-size: 1.5em; /* Adjusted font size for mobile */
+#category-message {
+    font-size: 2em;
     color: #000;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .boxes {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
-    margin-top: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .box {
-    width: 150px; /* Adjusted size for mobile */
+    width: 150px;
     height: 150px;
     margin: 10px;
     perspective: 1000px;
@@ -84,13 +102,13 @@ body {
 .images {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
-    margin-top: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .image-container {
     position: relative;
-    width: 150px; /* Adjusted size for mobile */
+    width: 150px;
     height: 150px;
     margin: 10px;
 }
@@ -100,7 +118,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border: 2px solid #000;
+    border: 5px solid #000;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     opacity: 0;
 }
@@ -110,45 +128,13 @@ body {
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform: translateX(-50%) scale(1.5); /* Adjusted scale for mobile */
-    font-size: 1.5em;
+    transform: translateX(-50%) scale(2);
+    font-size: 2em;
     color: gold;
     background-color: none;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 10px;
     z-index: 10;
-}
-
-#category-message {
-    font-size: 2em; /* Adjusted font size for mobile */
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-    animation: textEffect 2s infinite;
-}
-
-@media (min-width: 768px) {
-    #diamond {
-        width: 200px; /* Revert size for larger screens */
-        height: 200px;
-        top: 50px;
-    }
-
-    .box {
-        width: 300px;
-        height: 300px;
-        margin: 50px;
-    }
-
-    .image-container {
-        width: 320px;
-        height: 320px;
-        margin: 20px;
-    }
-
-    #category-message {
-        font-size: 5em; /* Larger text for bigger screens */
-    }
 }
 
 @keyframes textEffect {
@@ -208,214 +194,33 @@ body {
 .rupture {
     animation: rupture 1s forwards;
 }
-=======
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('Background3.png') no-repeat center center fixed;
-    background-size: cover;
-    transition: background 1s ease-in-out;
-}
 
-.container {
-    text-align: center;
-    padding: 20px; /* Reduced padding for mobile */
-    border-radius: 10px;
-    width: 100%; /* Ensure the container takes the full width on mobile */
-}
-
-#timer-container {
-    width: 100%; /* Make the timer bar responsive */
-    max-width: 800px; /* Limit maximum width for larger screens */
-    height: 35px;
-    border-radius: 25px;
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    background: #ff00cc;
-}
-
-#timer-bar-left, #timer-bar-right {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-}
-
-#diamond {
-    width: 50px; /* Reduced size for mobile */
-    height: 50px;
-    background: url('diamond.png') no-repeat center center;
-    background-size: cover;
-    position: absolute;
-    z-index: 10;
-    animation: beat 1s infinite;
-    top: -25px; /* Adjusted positioning */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#countdown-display {
-    font-size: 1.5em; /* Adjusted font size for mobile */
-    color: #000;
-    margin-top: 10px;
-}
-
-.boxes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
-    margin-top: 10px;
-}
-
-.box {
-    width: 150px; /* Adjusted size for mobile */
-    height: 150px;
-    margin: 10px;
-    perspective: 1000px;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateY(20deg) rotateX(20deg);
-    animation: beat 1s infinite;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.images {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
-    margin-top: 10px;
-}
-
-.image-container {
-    position: relative;
-    width: 150px; /* Adjusted size for mobile */
-    height: 150px;
-    margin: 10px;
-}
-
-.image {
-    display: none;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border: 2px solid #000;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    opacity: 0;
-}
-
-.win-overlay {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%) scale(1.5); /* Adjusted scale for mobile */
-    font-size: 1.5em;
-    color: gold;
-    background-color: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    z-index: 10;
-}
-
-#category-message {
-    font-size: 2em; /* Adjusted font size for mobile */
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-    animation: textEffect 2s infinite;
-}
-
-@media (min-width: 768px) {
-    #diamond {
-        width: 200px; /* Revert size for larger screens */
-        height: 200px;
-        top: 50px;
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
     }
 
-    .box {
-        width: 300px;
-        height: 300px;
-        margin: 50px;
-    }
-
-    .image-container {
-        width: 320px;
-        height: 320px;
-        margin: 20px;
+    #timer-container {
+        width: 90%;
     }
 
     #category-message {
-        font-size: 5em; /* Larger text for bigger screens */
+        font-size: 1.5em;
     }
-}
 
-@keyframes textEffect {
-    0%, 100% {
-        color: #ff0000;
-        text-shadow: 0 0 8px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    .box, .image-container {
+        width: 120px;
+        height: 120px;
     }
-    50% {
-        color: #00ff00;
-        text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-    }
-}
 
-@keyframes beat {
-    0%, 100% {
-        transform: scale(1);
+    #diamond {
+        width: 40px;
+        height: 40px;
     }
-    50% {
-        transform: scale(1.1);
-    }
-}
 
-@keyframes explode {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    70% {
-        transform: scale(2);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(3);
-        opacity: 0;
+    .win-overlay {
+        font-size: 1.5em;
+        transform: translateX(-50%) scale(1.5);
     }
 }
-
-.explode {
-    animation: explode 1s forwards;
-}
-
-@keyframes rupture {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    70% {
-        transform: scale(1.5);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-.rupture {
-    animation: rupture 1s forwards;
-}
->>>>>>> 67d8dc1e535021f2b7edf1d588ddd42d1f4dcf02
