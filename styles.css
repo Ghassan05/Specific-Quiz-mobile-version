@@ -67,18 +67,7 @@
     transition: transform 3.5s linear;
 }
 
-#diamond {
-    width: 50px;
-    height: 50px;
-    background: url('diamond.png') no-repeat center center;
-    background-size: cover;
-    position: absolute;
-    z-index: 10;
-    animation: beat 1s infinite;
-    top: -350px;
-    left: 40%;
-    transform: translateX(-50%);
-}
+
 
 #category-message {
     font-size: 2em;
