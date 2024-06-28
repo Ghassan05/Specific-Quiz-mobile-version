@@ -78,6 +78,7 @@ body, html {
     font-size: 2em;
     color: #000;
     margin-top: 20px;
+    animation: textEffect 2s infinite;
 }
 
 .boxes {
