@@ -1,14 +1,13 @@
-body {
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('Background3.png') no-repeat center center fixed; /* Replace 'glitter.jpg' with your image filename */
-    background-size: cover; /* Ensures the background image covers the entire viewport */
-    transition: background 1s ease-in-out; /* Smooth background transition */
-}
+    background-color: #f0f0f0;
+    overflow: hidden;
 
 .container {
     text-align: center;
