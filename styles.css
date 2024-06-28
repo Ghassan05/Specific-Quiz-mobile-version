@@ -61,8 +61,8 @@ body {
 }
 
 #diamond {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background: url('diamond.png') no-repeat center center;
     background-size: cover;
     position: absolute;
@@ -70,7 +70,7 @@ body {
     animation: beat 1s infinite;
     top: auto;
     bottom: -50px;
-    left: 50%;
+    left: 42%;
     transform: translateX(-50%);
 }
 
