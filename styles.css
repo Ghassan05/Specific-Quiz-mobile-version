@@ -82,8 +82,8 @@ body {
 }
 
 .box {
-    width: 200px; /* Double size */
-    height: 200px; /* Double size */
+    width: 100px; /* Double size */
+    height: 100px; /* Double size */
     margin: 50px;
     perspective: 1000px;
     position: relative;
