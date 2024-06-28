@@ -39,6 +39,26 @@ document.addEventListener("DOMContentLoaded", function() {
         challenge: {
             lose: Array.from({ length: 2 }, (_, i) => `lose/challenge/lose-challenge${i + 1}.png`),
             win: Array.from({ length: 1 }, (_, i) => `win/challenge/win-challenge${i + 1}.png`)
+        },
+        bedrooms: {
+            lose: Array.from({ length: 4 }, (_, i) => `lose/bedrooms/lose-bedroom${i + 1}.png`),
+            win: Array.from({ length: 2 }, (_, i) => `win/bedrooms/win-bedroom${i + 1}.png`)
+        },
+        cars: {
+            lose: Array.from({ length: 4 }, (_, i) => `lose/cars/lose-car${i + 1}.png`),
+            win: Array.from({ length: 2 }, (_, i) => `win/cars/win-car${i + 1}.png`)
+        },
+        motorcycles: {
+            lose: Array.from({ length: 4 }, (_, i) => `lose/motorcycles/lose-motorcycle${i + 1}.png`),
+            win: Array.from({ length: 2 }, (_, i) => `win/motorcycles/win-motorcycle${i + 1}.png`)
+        },
+        shoes: {
+            lose: Array.from({ length: 3 }, (_, i) => `lose/shoes/lose-shoe${i + 1}.png`),
+            win: Array.from({ length: 2 }, (_, i) => `win/shoes/win-shoe${i + 1}.png`)
+        },
+        hair: {
+            lose: Array.from({ length: 4 }, (_, i) => `lose/hair/lose-hair${i + 1}.png`),
+            win: Array.from({ length: 2 }, (_, i) => `win/hair/win-hair${i + 1}.png`)
         }
     };
 
@@ -46,13 +66,27 @@ document.addEventListener("DOMContentLoaded", function() {
         houses: { ...categories.houses },
         animals: { ...categories.animals },
         watches: { ...categories.watches },
-        challenge: { ...categories.challenge }
+        challenge: { ...categories.challenge },
+        bedrooms: { ...categories.bedrooms },
+        cars: { ...categories.cars },
+        motorcycles: { ...categories.motorcycles },
+        shoes: { ...categories.shoes },
+        hair: { ...categories.hair }
     };
 
+    let usedCategories = [];
+
     function getRandomCategory() {
-        const categoryKeys = Object.keys(categories);
-        const randomIndex = Math.floor(Math.random() * categoryKeys.length);
-        return categoryKeys[randomIndex];
+        if (usedCategories.length === Object.keys(categories).length) {
+            usedCategories = []; // Reset used categories after all have been used
+        }
+
+        let availableCategories = Object.keys(categories).filter(cat => !usedCategories.includes(cat));
+        const randomIndex = Math.floor(Math.random() * availableCategories.length);
+        const selectedCategory = availableCategories[randomIndex];
+        usedCategories.push(selectedCategory);
+
+        return selectedCategory;
     }
 
     function generateMessage(category) {
@@ -75,6 +109,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 categoryName = 'challenge';
                 emoji = '🏆';
                 break;
+            case 'bedrooms':
+                categoryName = 'bedroom';
+                emoji = '🛏️';
+                break;
+            case 'cars':
+                categoryName = 'car';
+                emoji = '🚗';
+                break;
+            case 'motorcycles':
+                categoryName = 'motorcycle';
+                emoji = '🏍️';
+                break;
+            case 'shoes':
+                categoryName = 'shoe';
+                emoji = '👟';
+                break;
+            case 'hair':
+                categoryName = 'hair';
+                emoji = '💇‍♂️';
+                break;
             default:
                 categoryName = '';
                 emoji = '';
@@ -91,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function getRandomImages(category) {
         let { lose, win } = availableImages[category];
 
+        // Ensure there are enough images to select from
         if (lose.length < 2 || win.length === 0) {
             availableImages[category] = { ...categories[category] }; // Reset category if all images have been shown
             lose = availableImages[category].lose;
