@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             win: Array.from({ length: 2 }, (_, i) => `win/motorcycles/win-motorcycle${i + 1}.png`)
         },
         shoes: {
-            lose: Array.from({ length: 4 }, (_, i) => `lose/shoes/lose-shoe${i + 1}.png`),
+            lose: Array.from({ length: 3 }, (_, i) => `lose/shoes/lose-shoe${i + 1}.png`),
             win: Array.from({ length: 2 }, (_, i) => `win/shoes/win-shoe${i + 1}.png`)
         },
         hair: {
@@ -278,5 +278,13 @@ document.addEventListener("DOMContentLoaded", function() {
         timeouts.push(setTimeout(resetProcess, 5000)); // Restart the process after 3.5 seconds
     }
 
+    function initializeBoxes() {
+        const boxes = document.querySelectorAll(".box");
+        boxes.forEach(box => {
+            box.style.display = "block"; // Ensure boxes are visible initially
+        });
+    }
+
+    initializeBoxes(); // Call this function to make boxes visible initially
     startCountdown(5);
 });
