@@ -75,8 +75,8 @@
     position: absolute;
     z-index: 10;
     animation: beat 1s infinite;
-    top: -50px;
-    left: 50%;
+    top: -350px;
+    left: 40%;
     transform: translateX(-50%);
 }
 
